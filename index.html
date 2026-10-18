@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0B1020" />
+  <meta name="description" content="A cinematic birthday experience for Naseehfa — turning 25 on 19 October 2026." />
+  <title>Naseehfa · 25 ✦ A Universe Made For You</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Noto+Serif+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="base.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="experience.css" />
+  <link rel="stylesheet" href="midnight.css" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     CANVAS PARTICLE BACKGROUND
+════════════════════════════════════════════ -->
+<canvas id="particleCanvas" aria-hidden="true"></canvas>
+
+<!-- ═══════════════════════════════════════════
+     CINEMATIC INTRO OVERLAY
+════════════════════════════════════════════ -->
+<div id="introOverlay" class="intro-overlay" role="dialog" aria-label="Birthday introduction" aria-modal="true">
+  <div class="intro-stars" id="introStars" aria-hidden="true"></div>
+  <div class="intro-content">
+    <p class="intro-line line-1" aria-hidden="true">Some people make ordinary days extraordinary.</p>
+    <h1 class="intro-name line-2" aria-hidden="true">For <em>Naseehfa</em></h1>
+    <div class="intro-number line-3" aria-hidden="true">
+      <span class="num-2">2</span><span class="num-5">5</span>
+    </div>
+    <p class="intro-tagline line-4" aria-hidden="true">A universe of surprises, made just for you.</p>
+    <button class="intro-btn line-5" id="enterBtn" type="button">
+      <span class="btn-glow" aria-hidden="true"></span>
+      Open Your Birthday Universe ✨
+    </button>
+  </div>
+  <button class="intro-skip" id="skipIntro" type="button" aria-label="Skip introduction">Skip intro</button>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     MIDNIGHT COUNTDOWN + BIRTHDAY EVENT
+════════════════════════════════════════════ -->
+<div id="midnightStage" class="midnight-stage" hidden aria-hidden="true">
+  <canvas id="midnightStarCanvas" class="midnight-layer-canvas" aria-hidden="true"></canvas>
+  <canvas id="midnightFireworks" class="midnight-layer-canvas midnight-fw-canvas" aria-hidden="true"></canvas>
+  <div id="midnightConfetti" class="midnight-confetti" aria-hidden="true"></div>
+  <div id="midnightBurst" class="midnight-burst" aria-hidden="true"></div>
+  <div class="midnight-vignette" aria-hidden="true"></div>
+
+  <button class="midnight-sound" id="midnightSoundBtn" type="button" aria-pressed="false" title="Enable celebration sound">
+    Sound off
+  </button>
+
+  <div id="midnightCountdown" class="midnight-countdown">
+    <p class="midnight-kicker">LIVE COUNTDOWN · ASIA/COLOMBO</p>
+    <h2 class="midnight-heading">Until her midnight</h2>
+    <p class="midnight-date">19 October 2026 · 00:00</p>
+    <div class="midnight-clock" id="midnightClock" aria-live="polite">
+      <div class="midnight-unit">
+        <span class="midnight-value" id="cdDays">00</span>
+        <span class="midnight-label">Days</span>
+      </div>
+      <span class="midnight-sep" aria-hidden="true">:</span>
+      <div class="midnight-unit">
+        <span class="midnight-value" id="cdHours">00</span>
+        <span class="midnight-label">Hours</span>
+      </div>
+      <span class="midnight-sep" aria-hidden="true">:</span>
+      <div class="midnight-unit">
+        <span class="midnight-value" id="cdMinutes">00</span>
+        <span class="midnight-label">Minutes</span>
+      </div>
+      <span class="midnight-sep" aria-hidden="true">:</span>
+      <div class="midnight-unit midnight-unit-seconds">
+        <span class="midnight-value" id="cdSeconds">00</span>
+        <span class="midnight-label">Seconds</span>
+      </div>
+    </div>
+    <p class="midnight-await" id="midnightAwait">The stars are gathering. The universe is holding its breath.</p>
+    <button class="midnight-explore" id="midnightExplore" type="button">Explore the 10 surprises ↗</button>
+  </div>
+
+  <div id="midnightCinematic" class="midnight-cinematic" hidden>
+    <p class="midnight-cinematic-label">THE UNIVERSE IS HOLDING ITS BREATH</p>
+    <span class="midnight-cinematic-num" id="midnightCinematicNum"></span>
+    <p class="midnight-cinematic-hint" id="midnightCinematicHint">seconds until midnight</p>
+  </div>
+
+  <div id="midnightFinalCount" class="midnight-final" hidden>
+    <span class="midnight-final-num" id="midnightFinalNum"></span>
+  </div>
+
+  <div id="midnightReveal" class="midnight-reveal" hidden>
+    <div class="midnight-sparkle-field" id="midnightSparkles" aria-hidden="true"></div>
+    <div class="midnight-banner" id="midnightBanner">
+      <div class="midnight-banner-glow" aria-hidden="true"></div>
+      <div class="midnight-banner-flourish" aria-hidden="true">✦ · · · ✦</div>
+      <p class="midnight-happy">HAPPY BIRTHDAY</p>
+      <p class="midnight-name">NASEE MAADU <span class="midnight-heart" aria-hidden="true">💖</span></p>
+      <p class="midnight-years">25 YEARS OF BEING WONDERFUL</p>
+      <p class="midnight-sub">Tonight, the whole universe celebrates you.</p>
+      <div class="midnight-banner-flourish flourish-bottom" aria-hidden="true">✦ · · · ✦</div>
+    </div>
+
+    <div class="midnight-cake-wrap" id="midnightCake" aria-hidden="true">
+      <div class="midnight-cake">
+        <span class="mc-flame f1"></span>
+        <span class="mc-flame f2"></span>
+        <span class="mc-flame f3"></span>
+        <span class="mc-candle c1"></span>
+        <span class="mc-candle c2"></span>
+        <span class="mc-candle c3"></span>
+        <div class="mc-top"><span>25</span></div>
+        <div class="mc-cream cream-a"></div>
+        <div class="mc-layer layer-a"></div>
+        <div class="mc-cream cream-b"></div>
+        <div class="mc-layer layer-b"></div>
+        <div class="mc-plate"></div>
+      </div>
+    </div>
+
+    <div class="midnight-actions">
+      <button class="midnight-replay" id="midnightReplay" type="button">Celebrate Again ✨</button>
+      <button class="midnight-continue" id="midnightContinue" type="button">Open the 10 surprises ↗</button>
+    </div>
+  </div>
+</div>
+
+<button class="midnight-dock" id="midnightDock" type="button" hidden>
+  <span class="dock-label" id="midnightDockLabel">Until midnight</span>
+  <span class="dock-time" id="midnightDockTime">—</span>
+</button>
+
+<!-- ═══════════════════════════════════════════
+     AMBIENT GLOWS
+════════════════════════════════════════════ -->
+<div class="ambient-glow glow-a" aria-hidden="true"></div>
+<div class="ambient-glow glow-b" aria-hidden="true"></div>
+<div class="ambient-glow glow-c" aria-hidden="true"></div>
+
+<!-- ═══════════════════════════════════════════
+     TOPBAR
+════════════════════════════════════════════ -->
+<header class="topbar" id="topbar">
+  <a class="brand" href="#home" aria-label="Return to home">
+    <span class="brand-star" aria-hidden="true">✦</span>
+    <span class="brand-text">a little universe for you</span>
+  </a>
+  <div class="top-actions">
+    <span class="date-chip" aria-label="Birthday date">MON · 19 OCT 2026</span>
+    <button class="sound-btn" id="musicBtn" type="button" aria-pressed="false" title="Toggle celebration sounds">
+      <span class="sound-icon" aria-hidden="true">♫</span>
+      <span class="sound-label">Sound</span>
+    </button>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════
+     BOTTOM NAV
+════════════════════════════════════════════ -->
+<nav class="bottom-nav" aria-label="Page sections">
+  <a href="#home" class="nav-item" data-section="home">
+    <span class="nav-icon" aria-hidden="true">✧</span>
+    <span>Home</span>
+  </a>
+  <a href="#surprises" class="nav-item" data-section="surprises">
+    <span class="nav-icon" aria-hidden="true">♡</span>
+    <span>Surprises</span>
+  </a>
+  <a href="#poems" class="nav-item" data-section="poems">
+    <span class="nav-icon" aria-hidden="true">✎</span>
+    <span>Poems</span>
+  </a>
+  <a href="#constellation" class="nav-item" data-section="constellation">
+    <span class="nav-icon" aria-hidden="true">★</span>
+    <span>Stars</span>
+  </a>
+  <a href="#finale" class="nav-item" data-section="finale">
+    <span class="nav-icon" aria-hidden="true">✦</span>
+    <span>Finale</span>
+  </a>
+</nav>
+
+<main>
+
+  <!-- ═══════════════════════════════════════
+       HERO SECTION
+  ══════════════════════════════════════════ -->
+  <section class="hero section" id="home">
+    <div class="hero-orbs" aria-hidden="true">
+      <span class="orb orb-1">♡</span>
+      <span class="orb orb-2">✦</span>
+      <span class="orb orb-3">✧</span>
+    </div>
+
+    <div class="hero-badge" aria-hidden="true">
+      <span class="badge-sparkle">✧</span>
+      A SECRET BIRTHDAY UNIVERSE
+      <span class="badge-sparkle">✧</span>
+    </div>
+
+    <p class="hero-kicker">FOR THE ONE AND ONLY</p>
+
+    <h1 class="hero-title">
+      Hey <span class="name-glow" id="heroName">Naseehfa</span>,<br>
+      <em>this is all for you.</em>
+    </h1>
+
+    <p class="hero-copy">
+      A little corner of the internet filled with big friendship, soft reminders,
+      tiny chaos and <strong>10 surprises</strong> waiting to be opened. 💗
+    </p>
+
+    <div class="birthday-seal" aria-label="25 years old">
+      <span class="seal-top">YOUR MAGIC NUMBER</span>
+      <strong class="seal-number">25</strong>
+      <span class="seal-bottom">A NEW CHAPTER ✦</span>
+    </div>
+
+    <button class="cta-btn" id="startBtn" type="button">
+      <span class="cta-spark" aria-hidden="true">✦</span>
+      Click Me Naseehfa
+      <span class="cta-arrow" aria-hidden="true">↗</span>
+    </button>
+
+    <p class="hero-hint">
+      <span class="pulse-dot" aria-hidden="true"></span>
+      tap the button to unlock your birthday magic
+    </p>
+
+    <!-- Floating petals & stars generated by JS -->
+    <div class="hero-floaters" id="heroFloaters" aria-hidden="true"></div>
+
+    <!-- Birthday cake preview -->
+    <div class="hero-cake-preview" aria-hidden="true">
+      <div class="mini-cake">
+        <div class="mini-candles">
+          <span class="mini-candle"></span>
+          <span class="mini-candle"></span>
+          <span class="mini-candle"></span>
+        </div>
+        <div class="mini-body"></div>
+        <div class="mini-base"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       INTRO QUOTE SECTION
+  ══════════════════════════════════════════ -->
+  <section class="intro-quote-section section" id="intro">
+    <div class="section-label">
+      <span>BEFORE THE SURPRISES</span>
+      <span>01 / A LITTLE NOTE</span>
+    </div>
+
+    <div class="quote-card glass reveal-card" data-reveal>
+      <div class="qmark" aria-hidden="true">"</div>
+      <blockquote class="qcard-text" id="introQuoteEn">
+        Some people make ordinary days feel a little less heavy. You're one of those people.
+      </blockquote>
+      <p class="tamil qcard-tamil" id="introQuoteTamil">
+        நான் சிரிக்கும்போது மட்டும் அல்ல…<br>
+        நான் அமைதியாக இருக்கும்போதும்<br>
+        என்னைப் புரிந்துகொள்ளும் தோழி நீ.
+      </p>
+      <footer class="qcard-footer" id="introSignature">— your best friend, always ♡</footer>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       SURPRISES GRID
+  ══════════════════════════════════════════ -->
+  <section class="surprises section" id="surprises">
+    <div class="section-label">
+      <span>YOUR LITTLE UNIVERSE</span>
+      <span>10 SURPRISES · ONE YOU</span>
+    </div>
+
+    <div class="surprises-header">
+      <div class="surprises-headline-wrap">
+        <p class="section-kicker">YOUR UNLOCKED TREASURE CHEST</p>
+        <h2>Pick a little <em>magic.</em></h2>
+        <p class="surprises-sub">Tap any card, or let the birthday trail lead you through them. Every click has something made with care.</p>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-label">
+          <span id="openedCount">0</span> / 10 opened
+        </div>
+        <div class="progress-track" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="10" id="progressTrack">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <p class="progress-caption">your surprise trail</p>
+      </div>
+    </div>
+
+    <div class="surprise-grid" id="surpriseGrid" aria-label="10 birthday surprises"></div>
+
+    <div class="all-opened-banner" id="allOpened" hidden>
+      <span class="aob-star">✦</span>
+      You opened every surprise. You are officially cared beyond measure.
+      <span class="aob-star">✦</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       POEMS SECTION
+  ══════════════════════════════════════════ -->
+  <section class="poems section" id="poems">
+    <div class="section-label">
+      <span>WORDS FROM THE HEART</span>
+      <span>THE POEM CORNER</span>
+    </div>
+    <h2>For the friend who <em>gets it.</em></h2>
+
+    <!-- Short Tamil poems grid -->
+    <div class="poem-grid" id="poemGrid"></div>
+
+    <!-- Long Tamil poems -->
+    <div class="long-poems" id="longPoemsContainer"></div>
+
+    <!-- Tamil birthday wishes -->
+    <div class="wishes-strip" id="tamilWishesStrip">
+      <div class="wishes-strip-label">
+        <span class="ws-star">✦</span>
+        பிறந்தநாள் வாழ்த்துகள்
+        <span class="ws-star">✦</span>
+      </div>
+      <div class="wishes-scroll" id="wishesScroll"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       FRIENDSHIP CONSTELLATION
+  ══════════════════════════════════════════ -->
+  <section class="constellation-section section" id="constellation">
+    <div class="section-label">
+      <span>THE FRIENDSHIP CONSTELLATION</span>
+      <span>TAP EACH STAR</span>
+    </div>
+    <h2>Your <em>stars.</em></h2>
+    <p class="constellation-sub">Each star holds a different friendship message. Tap them to reveal.</p>
+    <div class="constellation-wrap">
+      <canvas id="constellationCanvas" aria-label="Interactive friendship constellation"></canvas>
+      <div class="star-messages" id="starMessages" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       FINALE
+  ══════════════════════════════════════════ -->
+  <section class="finale section" id="finale">
+    <div class="finale-glow" aria-hidden="true"></div>
+
+    <span class="finale-pre" aria-hidden="true">✧</span>
+    <div class="eyebrow-label">THE LAST LITTLE SURPRISE</div>
+
+    <h2 class="finale-title">
+      <span id="finaleTitleA">Happy 25th,</span><br>
+      <em id="finaleTitleB">Naseehfa.</em>
+    </h2>
+
+    <p class="tamil finale-tamil" id="finaleTamil">
+      உன் வாழ்க்கை அழகான கதையாகட்டும்.<br>
+      அதில் மகிழ்ச்சி நிறையட்டும்,<br>
+      அன்பு குறையாமல் இருக்கட்டும்,<br>
+      உன் சிரிப்பு என்றும் மலரட்டும். ♡
+    </p>
+
+    <div class="finale-letter glass" id="finaleLetter">
+      <h3>One Last Thing</h3>
+      <div id="finaleLetterBody"></div>
+      <p class="finale-closing" id="finaleClosing">With all my care, your best friend ♡</p>
+    </div>
+
+    <button class="cta-btn finale-cta" id="confettiBtn" type="button">
+      <span class="cta-spark" aria-hidden="true">🎊</span>
+      One more little celebration
+      <span class="cta-spark" aria-hidden="true">✦</span>
+    </button>
+
+    <p class="footer-note" id="footerNote">MADE FOR NASEEHFA · 19.10.2026 ✦ A FRIENDSHIP THING</p>
+  </section>
+
+</main>
+
+<!-- ═══════════════════════════════════════════
+     SURPRISE DIALOG
+════════════════════════════════════════════ -->
+<dialog class="surprise-dialog" id="surpriseDialog" aria-labelledby="dialogTitle">
+  <button class="dialog-close" id="closeDialog" type="button" aria-label="Close surprise">×</button>
+
+  <div class="dialog-header">
+    <div class="dialog-icon" id="dialogIcon" aria-hidden="true">♡</div>
+    <p class="dialog-kicker" id="dialogKicker">SURPRISE 01 OF 10</p>
+    <h2 class="dialog-title" id="dialogTitle">A little surprise</h2>
+  </div>
+
+  <div class="dialog-body" id="dialogBody"></div>
+
+  <div class="dialog-footer">
+    <button class="nav-btn nav-prev" id="prevSurprise" type="button" aria-label="Previous surprise">
+      ← Prev
+    </button>
+    <span class="dialog-progress-dots" id="dialogDots"></span>
+    <button class="nav-btn nav-next" id="nextSurprise" type="button" aria-label="Next surprise">
+      Next →
+    </button>
+  </div>
+</dialog>
+
+<!-- ═══════════════════════════════════════════
+     TOAST NOTIFICATION
+════════════════════════════════════════════ -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- ═══════════════════════════════════════════
+     CONFETTI CONTAINER
+════════════════════════════════════════════ -->
+<div id="confettiContainer" aria-hidden="true"></div>
+
+<!-- Scripts -->
+<script src="content.js"></script>
+<script src="script.js"></script>
+<script src="midnight.js"></script>
+</body>
+</html>

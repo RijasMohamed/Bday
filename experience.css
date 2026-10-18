@@ -1,0 +1,1461 @@
+/* ═══════════════════════════════════════════════════════════════
+   EXPERIENCE.CSS — All 20 surprise detail views & cake ceremony
+   NASEEHFA 25 · A Universe Made For You
+════════════════════════════════════════════════════════════════ */
+
+/* ── Shared experience wrapper ─────────────────────────────── */
+.experience {
+    animation: experience-in .45s var(--ease-out-expo) both;
+    position: relative;
+}
+
+@keyframes experience-in {
+    from {
+        opacity: 0;
+        transform: translateY(14px) scale(.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.experience-ribbon {
+    display: inline-block;
+    font-size: 9px;
+    letter-spacing: .18em;
+    color: #21152e;
+    background: var(--gold);
+    padding: 6px 13px;
+    border-radius: 3px;
+    font-weight: 700;
+    transform: rotate(-1.5deg);
+    margin-bottom: 14px;
+}
+
+.experience-stamp {
+    display: inline-block;
+    border: 1px solid rgba(232, 201, 130, .6);
+    color: var(--gold);
+    border-radius: 50%;
+    font-size: 9px;
+    letter-spacing: .1em;
+    padding: 14px 10px;
+    transform: rotate(-8deg);
+    margin-top: 8px;
+}
+
+.experience-number {
+    position: absolute;
+    right: 4px;
+    top: 2px;
+    font-family: var(--serif);
+    font-size: 40px;
+    color: rgba(255, 255, 255, .07);
+    pointer-events: none;
+}
+
+.experience-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: var(--r-pill);
+    padding: 13px 22px;
+    background: linear-gradient(100deg, var(--gold), var(--rose));
+    color: #2B1020;
+    font-size: 12px;
+    font-weight: 700;
+    box-shadow: 0 8px 25px rgba(232, 201, 130, .25);
+    transition: transform .25s, box-shadow .25s;
+    margin-top: 14px;
+}
+
+.experience-action:hover {
+    transform: translateY(-3px) scale(1.02);
+}
+
+.experience-action:disabled {
+    opacity: .75;
+    cursor: default;
+}
+
+.experience-result {
+    min-height: 42px;
+    margin-top: 14px;
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.6;
+    color: #FFD9E8;
+}
+
+.experience-result strong {
+    color: var(--gold);
+    display: block;
+    margin-bottom: 4px;
+}
+
+/* ── 01 · Birthday Door ─────────────────────────────────────── */
+.door-experience {
+    text-align: center;
+}
+
+.door-wrap {
+    position: relative;
+    width: 180px;
+    height: 260px;
+    margin: 0 auto 20px;
+    perspective: 800px;
+}
+
+.door-frame {
+    position: absolute;
+    inset: 0;
+    border-radius: 90px 90px 8px 8px;
+    border: 2px solid rgba(232, 201, 130, .4);
+    background: linear-gradient(180deg, #2A1040, #1A0D28);
+    overflow: hidden;
+}
+
+.door-panel {
+    position: absolute;
+    inset: 4px;
+    border-radius: 87px 87px 5px 5px;
+    background: linear-gradient(145deg, #3B1E55, #0F0B1E);
+    transform-origin: left center;
+    transition: transform 1.2s var(--ease-out-expo);
+    transform-style: preserve-3d;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(245, 184, 206, .15);
+}
+
+.door-handle {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 8px var(--gold);
+}
+
+.door-number {
+    font-family: var(--serif);
+    font-size: 60px;
+    color: rgba(232, 201, 130, .25);
+    -webkit-text-stroke: 1px rgba(232, 201, 130, .4);
+}
+
+.door-open .door-panel {
+    transform: rotateY(-85deg);
+}
+
+.door-inner {
+    position: absolute;
+    inset: 4px;
+    border-radius: 87px 87px 5px 5px;
+    background: radial-gradient(circle at 50% 40%, rgba(232, 201, 130, .35), transparent 70%);
+    display: grid;
+    place-items: center;
+    font-size: 40px;
+}
+
+.door-btn {
+    border: 1px solid rgba(232, 201, 130, .35);
+    background: rgba(232, 201, 130, .07);
+    color: var(--gold);
+    border-radius: var(--r-pill);
+    padding: 12px 24px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background .2s;
+    cursor: pointer;
+}
+
+.door-btn:hover {
+    background: rgba(232, 201, 130, .15);
+}
+
+/* ── 02 · Birthday Letter ───────────────────────────────────── */
+.letter-experience {
+    background: linear-gradient(145deg, rgba(74, 23, 48, .25), rgba(20, 10, 35, .25));
+    border: 1px solid rgba(245, 184, 206, .12);
+    border-radius: var(--r-md);
+    padding: 24px;
+}
+
+.letter-salutation {
+    font-family: var(--serif);
+    font-size: 18px;
+    color: var(--gold);
+    margin-bottom: 16px;
+}
+
+.letter-body p {
+    font-size: 14px;
+    line-height: 1.9;
+    margin-bottom: 14px;
+    color: #E5D8EB;
+}
+
+.letter-closing {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--rose);
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+.letter-sig {
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--gold);
+    margin-top: 6px;
+}
+
+.letter-seal {
+    display: block;
+    text-align: center;
+    font-size: 28px;
+    color: var(--rose);
+    margin-bottom: 16px;
+    animation: float-up 3s ease-in-out infinite;
+}
+
+/* ── 03 · Reasons You Are Special ──────────────────────────── */
+.reasons-experience {
+    text-align: left;
+}
+
+.reason-display {
+    min-height: 80px;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    margin: 12px 0 20px;
+}
+
+.reason-icon {
+    font-size: 28px;
+    color: var(--gold);
+    margin-bottom: 8px;
+}
+
+.reason-text {
+    font-family: var(--serif);
+    font-size: clamp(18px, 3vw, 22px);
+    line-height: 1.45;
+    color: var(--ivory);
+    font-style: italic;
+}
+
+.reason-counter {
+    font-size: 10px;
+    letter-spacing: .15em;
+    color: var(--muted);
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.reason-nav {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.reason-btn {
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, .06);
+    color: var(--muted);
+    border-radius: var(--r-pill);
+    padding: 10px 20px;
+    font-size: 12px;
+    transition: background .2s, color .2s;
+    cursor: pointer;
+}
+
+.reason-btn:hover {
+    background: rgba(255, 255, 255, .12);
+    color: var(--ivory);
+}
+
+/* ── 04 · Memory Garden ─────────────────────────────────────── */
+.memory-experience {}
+
+.memory-cards-wrap {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.memory-card {
+    padding: 16px;
+    border-radius: var(--r-md);
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, .04);
+    font-size: 13px;
+    line-height: 1.7;
+    color: #E5D8EB;
+    position: relative;
+    padding-left: 42px;
+}
+
+.memory-card::before {
+    content: '♡';
+    position: absolute;
+    left: 14px;
+    top: 14px;
+    color: var(--rose-dim);
+    font-size: 14px;
+}
+
+/* ── 05 · Smile Award ───────────────────────────────────────── */
+.award-experience {
+    text-align: center;
+}
+
+.award-trophy {
+    font-size: 64px;
+    margin-bottom: 8px;
+    animation: trophy-bounce 2s ease-in-out infinite;
+}
+
+@keyframes trophy-bounce {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(-4deg);
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(4deg);
+    }
+}
+
+.award-title {
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--gold);
+    margin-bottom: 8px;
+}
+
+.award-recipient {
+    font-family: var(--serif);
+    font-size: 32px;
+    color: var(--ivory);
+    margin-bottom: 12px;
+}
+
+.award-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 16px;
+}
+
+.award-seal-ring {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px dashed rgba(232, 201, 130, .4);
+    margin: 0 auto 16px;
+    display: grid;
+    place-items: center;
+    animation: spin-slow 12s linear infinite;
+}
+
+.award-seal-inner {
+    font-size: 36px;
+    animation: spin-slow 12s linear reverse infinite;
+}
+
+/* ── 06 · Strong Heart Award ───────────────────────────────── */
+.strongheart-experience {
+    text-align: center;
+}
+
+.heart-icon {
+    font-size: 60px;
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    14% {
+        transform: scale(1.15);
+    }
+
+    28% {
+        transform: scale(1);
+    }
+
+    42% {
+        transform: scale(1.12);
+    }
+
+    70% {
+        transform: scale(1);
+    }
+}
+
+/* ── 07 · Constellation (inside dialog) ─────────────────────── */
+/* uses global constellation styles */
+
+/* ── 08 / 09 · Tamil Poems ──────────────────────────────────── */
+.poem-experience {}
+
+.poem-exp-header {
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 14px;
+    margin-bottom: 14px;
+}
+
+.poem-exp-title {
+    font-family: var(--serif);
+    font-size: 24px;
+    color: var(--gold);
+    margin-bottom: 4px;
+}
+
+/* ── 10 · English Poem (dialog) ─────────────────────────────── */
+.en-poem-experience {}
+
+/* ── 11 · Quiz ──────────────────────────────────────────────── */
+.quiz-experience {}
+
+.quiz-q-num {
+    font-size: 10px;
+    letter-spacing: .2em;
+    color: var(--muted);
+    margin-bottom: 8px;
+}
+
+.quiz-question {
+    font-family: var(--serif);
+    font-size: clamp(17px, 2.8vw, 21px);
+    line-height: 1.4;
+    color: var(--ivory);
+    margin-bottom: 18px;
+}
+
+.quiz-options {
+    display: grid;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.quiz-opt {
+    text-align: left;
+    padding: 13px 16px;
+    border-radius: var(--r-md);
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, .05);
+    color: #E5D8EB;
+    font-size: 13px;
+    cursor: pointer;
+    transition: border-color .2s, background .2s;
+}
+
+.quiz-opt:hover {
+    border-color: rgba(232, 201, 130, .35);
+    background: rgba(232, 201, 130, .07);
+}
+
+.quiz-opt.correct {
+    border-color: #6EE7B7;
+    background: rgba(110, 231, 183, .1);
+    color: #6EE7B7;
+}
+
+.quiz-opt.wrong {
+    border-color: var(--rose-dim);
+    background: rgba(245, 184, 206, .1);
+}
+
+.quiz-feedback {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 16px;
+    color: var(--gold);
+    min-height: 28px;
+    margin-bottom: 8px;
+}
+
+.quiz-score {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 10px;
+    letter-spacing: .03em;
+}
+
+.quiz-nav {
+    display: flex;
+    gap: 10px;
+}
+
+/* ── 12 · University Awards ─────────────────────────────────── */
+.uni-awards-experience {}
+
+.uni-award-item {
+    padding: 14px 16px;
+    border-radius: var(--r-md);
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, .04);
+    margin-bottom: 8px;
+    transition: border-color .2s;
+}
+
+.uni-award-item:hover {
+    border-color: rgba(232, 201, 130, .3);
+}
+
+.uni-award-name {
+    font-family: var(--serif);
+    font-size: 16px;
+    color: var(--gold);
+    margin-bottom: 4px;
+}
+
+.uni-award-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+/* ── 13 · Things I Never Say Enough ─────────────────────────── */
+.never-say-experience {}
+
+.never-item {
+    padding: 18px;
+    border-radius: var(--r-md);
+    border: 1px solid var(--line);
+    background: rgba(74, 23, 48, .15);
+    margin-bottom: 10px;
+    font-family: var(--serif);
+    font-size: clamp(16px, 2.5vw, 19px);
+    line-height: 1.5;
+    font-style: italic;
+    color: var(--ivory);
+    transition: border-color .2s;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.never-item::before {
+    content: '♡';
+    color: var(--rose);
+    font-size: 18px;
+    flex-shrink: 0;
+    font-style: normal;
+}
+
+.never-item:hover {
+    border-color: rgba(245, 184, 206, .3);
+}
+
+/* ── 14 · Future Wish Jar ───────────────────────────────────── */
+.wishjar-experience {
+    text-align: center;
+}
+
+.jar-wrap {
+    position: relative;
+    width: 120px;
+    height: 150px;
+    margin: 0 auto 20px;
+}
+
+.jar-body {
+    width: 100%;
+    height: 130px;
+    border-radius: 10px 10px 20px 20px;
+    border: 2px solid rgba(232, 201, 130, .4);
+    background: linear-gradient(180deg, rgba(232, 201, 130, .15), rgba(232, 201, 130, .05));
+    position: absolute;
+    bottom: 0;
+    display: grid;
+    place-items: center;
+    perspective: 200px;
+}
+
+.jar-lid {
+    width: 110%;
+    height: 24px;
+    border-radius: 6px;
+    background: linear-gradient(180deg, #C9A84C, #8B5E28);
+    position: absolute;
+    top: -12px;
+    left: -5%;
+    border: 1px solid rgba(232, 201, 130, .5);
+    transition: transform .5s var(--ease-out-expo);
+}
+
+.jar-open .jar-lid {
+    transform: translateY(-30px) rotate(-15deg);
+}
+
+.jar-wish {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 16px;
+    color: var(--gold);
+    padding: 0 10px;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.jar-counter {
+    font-size: 10px;
+    letter-spacing: .1em;
+    color: var(--muted);
+    margin-bottom: 14px;
+}
+
+/* ── 15 · Friendship Contract ───────────────────────────────── */
+.contract-experience {}
+
+.contract-header {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.contract-title {
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--gold);
+}
+
+.contract-subtitle {
+    font-size: 11px;
+    letter-spacing: .1em;
+    color: var(--muted);
+    margin-top: 4px;
+}
+
+.contract-clauses {
+    margin-bottom: 14px;
+}
+
+.contract-clause {
+    padding: 12px 16px;
+    border-radius: var(--r-sm);
+    border-bottom: 1px solid rgba(255, 255, 255, .06);
+    font-size: 13px;
+    color: #E5D8EB;
+    line-height: 1.6;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.contract-clause::before {
+    content: '§';
+    color: var(--gold-dim);
+    flex-shrink: 0;
+    font-family: var(--serif);
+}
+
+.contract-seal {
+    text-align: center;
+    border-top: 1px dashed rgba(232, 201, 130, .25);
+    padding-top: 14px;
+    font-size: 11px;
+    color: var(--muted);
+}
+
+/* ── 16 · Compliment Machine ────────────────────────────────── */
+.compliment-experience {
+    text-align: center;
+}
+
+.compliment-display {
+    min-height: 90px;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    border-radius: var(--r-lg);
+    border: 1px solid rgba(245, 184, 206, .2);
+    background: rgba(74, 23, 48, .15);
+    margin: 12px 0 18px;
+    transition: border-color .3s;
+}
+
+.compliment-display:hover {
+    border-color: rgba(245, 184, 206, .4);
+}
+
+.compliment-text {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(16px, 2.5vw, 20px);
+    line-height: 1.5;
+    color: var(--ivory);
+}
+
+.compliment-star-row {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 14px;
+}
+
+.cstar {
+    color: var(--gold);
+    font-size: 16px;
+}
+
+/* ── 17 · Open-When Letters ─────────────────────────────────── */
+.openWhen-experience {}
+
+.envelope-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.envelope-btn {
+    position: relative;
+    text-align: center;
+    padding: 20px 14px 16px;
+    border-radius: var(--r-md);
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, .04);
+    cursor: pointer;
+    transition: border-color .2s, background .2s, transform .2s;
+    overflow: hidden;
+}
+
+.envelope-btn:hover {
+    border-color: rgba(245, 184, 206, .35);
+    background: rgba(245, 184, 206, .06);
+    transform: translateY(-3px);
+}
+
+.envelope-btn.ow-open {
+    border-color: rgba(232, 201, 130, .35);
+    background: rgba(232, 201, 130, .07);
+}
+
+.env-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    border-radius: var(--r-md) var(--r-md) 0 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, .1), transparent);
+    clip-path: polygon(0 0, 50% 60%, 100% 0);
+    transition: transform .4s var(--ease-out-expo);
+}
+
+.envelope-btn.ow-open .env-flap {
+    transform: rotateX(180deg) translateY(-100%);
+}
+
+.env-icon {
+    font-size: 26px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.env-label {
+    font-size: 11px;
+    line-height: 1.4;
+    color: var(--muted);
+}
+
+.ow-message-wrap {
+    padding: 18px;
+    border-radius: var(--r-md);
+    border: 1px solid rgba(245, 184, 206, .2);
+    background: rgba(74, 23, 48, .15);
+    margin-top: 2px;
+    animation: experience-in .4s both;
+}
+
+.ow-message-label {
+    font-size: 10px;
+    letter-spacing: .15em;
+    color: var(--rose-dim);
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.ow-message-text {
+    font-size: 13.5px;
+    line-height: 1.9;
+    color: #E5D8EB;
+}
+
+/* ── 18 · 25 Wishes ─────────────────────────────────────────── */
+.wishes25-experience {}
+
+.wish25-grid {
+    display: grid;
+    gap: 8px;
+}
+
+.wish25-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, .04);
+    font-size: 13px;
+    color: #E5D8EB;
+    line-height: 1.6;
+    animation: wish-reveal .4s var(--ease-out-expo) both;
+}
+
+@keyframes wish-reveal {
+    from {
+        opacity: 0;
+        transform: translateX(-12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.wish25-num {
+    font-family: var(--serif);
+    font-size: 18px;
+    color: var(--gold);
+    min-width: 28px;
+    line-height: 1.2;
+    flex-shrink: 0;
+}
+
+/* ── 19 · Birthday Cake Ceremony (full) ─────────────────────── */
+.cake-experience {
+    text-align: center;
+}
+
+.cake-stage {
+    height: 280px;
+    position: relative;
+    display: grid;
+    place-items: center;
+    margin: -10px 0 10px;
+    perspective: 700px;
+}
+
+.cake-glow {
+    position: absolute;
+    width: 260px;
+    height: 140px;
+    border-radius: 50%;
+    background: rgba(255, 189, 109, .18);
+    filter: blur(34px);
+}
+
+.cake-stand {
+    position: absolute;
+    bottom: 18px;
+    width: 218px;
+    height: 96px;
+    z-index: 1;
+}
+
+.cake-stand-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 218px;
+    height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #FFFEF5, #E6C66D 45%, #99702F);
+    box-shadow: 0 8px 15px rgba(9, 6, 16, .6), 0 0 18px rgba(244, 202, 106, .25);
+}
+
+.cake-stand-stem {
+    position: absolute;
+    top: 20px;
+    left: 95px;
+    width: 28px;
+    height: 52px;
+    background: linear-gradient(90deg, #805923, #FFF2B6 45%, #79531E);
+    clip-path: polygon(25% 0, 75% 0, 100% 100%, 0 100%);
+}
+
+.cake-stand-foot {
+    position: absolute;
+    bottom: 0;
+    left: 44px;
+    width: 130px;
+    height: 22px;
+    border-radius: 50%;
+    background: linear-gradient(#FFF0A4, #B17D2F);
+    box-shadow: 0 5px 0 #45321B, 0 0 15px rgba(244, 202, 106, .35);
+}
+
+.cake-plate {
+    position: absolute;
+    bottom: 106px;
+    width: 210px;
+    height: 18px;
+    border-radius: 50%;
+    background: linear-gradient(#FFF7E1, #E3BF64 55%, #8B5C24);
+    box-shadow: 0 5px 0 #5E3C20, 0 0 12px rgba(244, 202, 106, .35);
+    z-index: 2;
+}
+
+.cake {
+    position: absolute;
+    bottom: 90px;
+    width: 180px;
+    height: 120px;
+    border-radius: 18px 18px 22px 22px;
+    z-index: 3;
+    overflow: visible;
+    background: transparent;
+    box-shadow: none;
+}
+
+.cake-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 180px;
+    height: 44px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 22% 34%, #FFE8C7 0 3px, transparent 4px),
+        radial-gradient(circle at 76% 30%, #F6C56F 0 2px, transparent 3px),
+        linear-gradient(145deg, #A94838, #4B151D 70%);
+    box-shadow: inset 0 -6px #2B0D16, 0 9px 16px rgba(19, 9, 18, .65);
+    z-index: 5;
+}
+
+.cake-top::before {
+    content: '';
+    position: absolute;
+    inset: 6px 9px;
+    border: 1px solid rgba(255, 215, 145, .6);
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(255, 214, 139, .1);
+}
+
+.cake-top::after {
+    content: '';
+    position: absolute;
+    inset: 13px 18px auto;
+    height: 17px;
+    border-radius: 50%;
+    border: 3px solid #FFC978;
+    border-top-color: #FFF2D7;
+    box-shadow: 0 0 9px rgba(247, 189, 100, .65);
+}
+
+.cake-layer {
+    position: absolute;
+    left: 0;
+    width: 180px;
+    height: 39px;
+    border-radius: 7px 7px 13px 13px;
+    background: linear-gradient(90deg, #2B0B15, #6C2428 14%, #A94937 32%, #5B1C25 50%, #B35C40 68%, #35101A);
+    box-shadow: inset 0 -6px #260B14, 0 9px 12px rgba(16, 8, 16, .6);
+}
+
+.layer-one {
+    top: 31px;
+}
+
+.layer-two {
+    top: 71px;
+}
+
+.cake-cream {
+    position: absolute;
+    left: -3px;
+    width: 186px;
+    height: 15px;
+    border-radius: 50%;
+    background: linear-gradient(#FFF8E8 0 28%, #FFD8BD 55%, #C87869);
+    box-shadow: 0 3px 0 #A85853, 0 0 6px rgba(255, 224, 192, .65);
+    z-index: 4;
+}
+
+.cream-one {
+    top: 25px;
+}
+
+.cream-two {
+    top: 65px;
+}
+
+.cream-three {
+    top: 104px;
+}
+
+.cake-number {
+    position: absolute;
+    inset: 5px 0 auto;
+    text-align: center;
+    font-family: var(--serif);
+    font-size: 30px;
+    color: #FFF1D1;
+    text-shadow: 0 0 8px rgba(255, 202, 105, .5), 0 2px 4px #2B0B16;
+    z-index: 2;
+}
+
+.cake-candle {
+    position: absolute;
+    top: -40px;
+    height: 41px;
+    width: 8px;
+    background: repeating-linear-gradient(135deg, #FFF8E8 0 5px, #D6A04D 5px 8px);
+    border: 1px solid #FFF0BD;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(44, 12, 24, .5);
+    z-index: 6;
+}
+
+.c1 {
+    left: 35px;
+}
+
+.c2 {
+    left: 73px;
+}
+
+.c3 {
+    right: 35px;
+}
+
+.cake-flame {
+    position: absolute;
+    top: -68px;
+    width: 14px;
+    height: 22px;
+    border-radius: 60% 40% 60% 40%;
+    background: radial-gradient(circle at 50% 70%, #FFF9AD 0 24%, #FFB52D 25% 62%, #FF633D 63%);
+    font-size: 0;
+    z-index: 7;
+    filter: drop-shadow(0 0 9px #FFB52D);
+    animation: flame 1s ease-in-out infinite alternate;
+}
+
+.f1 {
+    left: 33px;
+}
+
+.f2 {
+    left: 71px;
+    animation-delay: .22s;
+}
+
+.f3 {
+    right: 33px;
+    animation-delay: .44s;
+}
+
+.cake-cut .cake-flame {
+    animation: blow-out .65s ease forwards;
+}
+
+.candle-note {
+    font-size: 13px;
+    color: #FFD9A7;
+    margin: 4px 0 14px;
+}
+
+/* Luxury topper */
+.luxury-topper {
+    position: absolute;
+    left: 50%;
+    top: -70px;
+    z-index: 9;
+    display: grid;
+    justify-items: center;
+    transform: translateX(-50%);
+    color: var(--gold);
+    text-shadow: 0 0 12px var(--gold-dim);
+}
+
+.topper-monogram {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border: 2px solid #E5A84F;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #FFF0B1, #B87526 50%, #FFF0B1);
+    color: #5A251A;
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 700;
+    box-shadow: 0 0 0 3px #5D211F, 0 0 18px rgba(255, 212, 125, .5);
+}
+
+.luxury-topper small {
+    margin-top: 3px;
+    padding: 2px 8px;
+    border-radius: 2px;
+    background: #5D211F;
+    color: #FFE8AE;
+    font-size: 7px;
+    letter-spacing: .2em;
+    white-space: nowrap;
+}
+
+.gold-leaf {
+    position: absolute;
+    z-index: 8;
+    color: var(--gold);
+    font-size: 15px;
+    text-shadow: 0 0 8px var(--gold-dim);
+    animation: gold-shimmer 2.2s ease-in-out infinite;
+}
+
+.leaf-one {
+    left: 20px;
+    top: 10px;
+}
+
+.leaf-two {
+    right: 22px;
+    top: 13px;
+    animation-delay: .6s;
+}
+
+.leaf-three {
+    left: 80px;
+    top: 20px;
+    font-size: 10px;
+    animation-delay: 1s;
+}
+
+.pearl {
+    position: absolute;
+    z-index: 8;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 25%, #FFF, #F5D8DA 45%, #B8838A);
+    box-shadow: 0 1px 4px rgba(33, 11, 20, .5);
+}
+
+.pearl-one {
+    left: 8px;
+    top: 30px;
+}
+
+.pearl-two {
+    left: 48px;
+    top: 35px;
+}
+
+.pearl-three {
+    right: 47px;
+    top: 35px;
+}
+
+.pearl-four {
+    right: 8px;
+    top: 30px;
+}
+
+/* Knife */
+.cake-knife {
+    position: absolute;
+    right: calc(50% - 125px);
+    top: 68px;
+    width: 103px;
+    height: 43px;
+    z-index: 8;
+    transform: rotate(-33deg);
+    transform-origin: 80% 80%;
+    filter: drop-shadow(0 5px 4px rgba(0, 0, 0, .55));
+}
+
+.knife-blade {
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 66px;
+    height: 12px;
+    border-radius: 2px 8px 8px 2px;
+    background: linear-gradient(#FFF, #A9AEBD 48%, #626979);
+    clip-path: polygon(0 0, 100% 0, 86% 100%, 0 100%);
+}
+
+.knife-handle {
+    position: absolute;
+    right: 0;
+    top: 4px;
+    width: 46px;
+    height: 24px;
+    border-radius: 7px 11px 11px 7px;
+    background: linear-gradient(180deg, #5E182D, #C04469 45%, #3A1020);
+    box-shadow: inset 0 2px #EF839B;
+}
+
+.cake-slice {
+    position: absolute;
+    right: -2px;
+    top: 33px;
+    width: 46px;
+    height: 70px;
+    background: linear-gradient(90deg,
+            #3B151B 0 18%, #F2B08A 19% 37%,
+            #6D2528 38% 60%, #F2B08A 61% 79%, #3B151B 80%);
+    clip-path: polygon(0 0, 100% 17%, 100% 100%, 0 82%);
+    border-top: 3px solid #FFF0D5;
+    box-shadow: 0 5px 9px rgba(22, 10, 19, .5);
+    opacity: 0;
+    z-index: 6;
+}
+
+.slice-plate {
+    position: absolute;
+    right: 24px;
+    bottom: 82px;
+    width: 76px;
+    height: 14px;
+    border-radius: 50%;
+    background: linear-gradient(#FFF5DA, #D6A64F);
+    box-shadow: 0 3px 0 #79501F;
+    opacity: 0;
+    z-index: 5;
+}
+
+.clap-track {
+    height: 0;
+    overflow: hidden;
+    text-align: center;
+    letter-spacing: .35em;
+    font-size: 24px;
+    color: var(--gold);
+    opacity: 0;
+}
+
+/* Cake cut animations */
+.cake-cut .cake-knife {
+    animation: knife-cut .8s ease both;
+}
+
+.cake-cut .cake {
+    animation: cake-shake .8s ease both;
+}
+
+.cake-cut .cake-glow {
+    animation: celebrate-glow 1s ease both;
+}
+
+.cake-cut .cake-candle,
+.cake-cut .cake-flame {
+    opacity: .3;
+}
+
+.cake-cut .cake-slice {
+    animation: serve-slice 1.35s .55s cubic-bezier(.2, .75, .2, 1) forwards;
+}
+
+.cake-cut .slice-plate {
+    animation: show-slice-plate .45s 1.05s forwards;
+}
+
+.cake-cut .clap-track {
+    height: 42px;
+    opacity: 1;
+    animation: clap-pop .8s .25s both;
+}
+
+/* ── 20 · Grand Finale ───────────────────────────────────────── */
+.finale-experience {
+    text-align: center;
+}
+
+.finale-exp-title {
+    font-family: var(--serif);
+    font-size: clamp(28px, 5vw, 38px);
+    line-height: 1.1;
+    color: var(--gold);
+    margin-bottom: 8px;
+}
+
+.finale-exp-fireworks {
+    position: relative;
+    height: 180px;
+    border-radius: var(--r-md);
+    border: 1px solid rgba(255, 202, 119, .3);
+    background: linear-gradient(180deg, #0D1428, #202068 60%, #7B3060);
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.finale-exp-fireworks::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(#FFF 1px, transparent 1px), radial-gradient(#A7DFFF 1px, transparent 1px);
+    background-size: 47px 37px, 73px 61px;
+    background-position: 6px 5px, 20px 17px;
+    opacity: .65;
+}
+
+#fireworksCanvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.finale-launch-btn {
+    margin-bottom: 14px;
+}
+
+/* Shared keyframes */
+@keyframes gold-shimmer {
+    50% {
+        transform: scale(1.15) rotate(9deg);
+        filter: brightness(1.4);
+    }
+}
+
+@keyframes blow-out {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    45% {
+        transform: translateX(8px) scaleX(1.5) scaleY(.5);
+        opacity: .8;
+    }
+
+    100% {
+        transform: translateX(18px) translateY(8px) scale(0);
+        opacity: 0;
+    }
+}
+
+@keyframes knife-cut {
+    35% {
+        transform: rotate(8deg) translate(-30px, 38px);
+    }
+
+    65% {
+        transform: rotate(-8deg) translate(-16px, 15px);
+    }
+
+    100% {
+        transform: rotate(-33deg);
+    }
+}
+
+@keyframes cake-shake {
+    35% {
+        transform: rotate(-2deg) translateX(-5px);
+    }
+
+    65% {
+        transform: rotate(2deg) translateX(4px);
+    }
+
+    100% {
+        transform: rotate(0) translateX(0);
+        box-shadow: 0 0 40px rgba(255, 117, 173, .5);
+    }
+}
+
+@keyframes serve-slice {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0) rotate(0) scale(.8);
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    70% {
+        opacity: 1;
+        transform: translate(52px, 52px) rotate(8deg) scale(1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(52px, 47px) rotate(4deg) scale(1);
+    }
+}
+
+@keyframes show-slice-plate {
+    to {
+        opacity: 1;
+        transform: translate(52px, 47px);
+    }
+}
+
+@keyframes clap-pop {
+    0% {
+        transform: scale(.5);
+        opacity: 0;
+    }
+
+    70% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes celebrate-glow {
+    to {
+        transform: scale(1.6);
+        opacity: 0;
+    }
+}
+
+/* Dialog breathe override for experiences */
+@keyframes dialog-breathe {
+    50% {
+        transform: scale(1.06);
+        box-shadow: 0 0 0 14px rgba(245, 184, 206, .015), 0 0 35px rgba(245, 184, 206, .25);
+    }
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 600px) {
+    .cake-stage {
+        height: 220px;
+    }
+
+    .cake {
+        transform: scale(.82);
+    }
+
+    .envelope-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .experience-action {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .door-wrap {
+        width: 140px;
+        height: 200px;
+    }
+}
