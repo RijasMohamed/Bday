@@ -2,6 +2,12 @@
 
 A responsive, no-photo birthday surprise website with 10 focused interactive surprises, original Tamil friendship poems, short English/Tamil messages, floating stars, confetti, copy-poem buttons, progress tracking, and optional gentle chime sounds.
 
+## Security hardening
+
+- The page now ships with a restrictive Content Security Policy (CSP) to allow only same-origin scripts and controlled external font sources.
+- Browser hardening headers are set through meta tags (`X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`) to reduce clickjacking, MIME-sniffing, and unnecessary API exposure.
+- Keep all scripts/styles local where possible and avoid adding new third-party resources without updating the CSP.
+
 ## Preview locally
 
 1. Extract the ZIP (if using the ZIP).
